@@ -60,21 +60,17 @@ console.log("Rock Paper Scissors.");
 // }
 
 
-//SET the humanScore and ComputerScore to default value 0
-let humanScore = 0;
-let computerScore = 0;
-
 // Create a choice for computer that RANDOMLY chooses rock, paper, or scissors
 function getComputerChoice() {
   // SET the computerChoice RANDOMLY
-  let ComputerChoice = Math.random();
+  let computerChoice = Math.random();
   // ASSIGN rock, paper, scissors values
-  if (ComputerChoice <= 0.33 ) {
-    return "Rock"; // Display Rock
-  } else if (ComputerChoice <= 0.67) {
-    return "Paper"; // DISPLAY Paper
+  if (computerChoice <= 0.33 ) {
+    return "rock"; // Display Rock
+  } else if (computerChoice <= 0.67) {
+    return "paper"; // DISPLAY Paper
   } else {
-    return "Scissors"; // DISPLAY Scissors
+    return "scissors"; // DISPLAY Scissors
   }
 }
 // Display the computer choice
@@ -82,20 +78,65 @@ console.log('Computer choice: ' + getComputerChoice());
 
 // Create a choice for human that will return valid choices
 function getHumanChoice() {
-  // Ask the user 
-  let humanChoice = prompt('Do you choose rock, paper, or scissors?', 'rock');
-  console.log('User choice: ' + humanChoice);
-  // SET valid to false;
-  let valid = false;
-  // Repeat the question until the answer is VALID.
-  while(!valid)
-  // if the user input is not valid ask again
-  if (humanChoice != 'rock' && humanChoice != 'paper' && humanChoice != 'scissors') {
-    humanChoice = prompt('Wrong answer! Select again.', 'paper').toLowerCase;
-    console.log('User choice: ' + humanChoice);
-    // if the user input is valid 
+  // Ask the user to choose between rock, paper, scissors
+  let humanChoice = prompt("rock, paper, scissors?", "rock").toLowerCase();
+
+  if (humanChoice !== 'rock' && humanChoice !== 'scissors' && humanChoice !== 'paper') {
+    alert("Invalid Choice");
+    humanChoice = prompt("rock, paper, scissors?", "scissors").toLowerCase();
+    console.log('Human choice: ' + humanChoice);
+    return(humanChoice);
   } else {
-    valid = true;
-    console.log(getHumanChoice());
+    console.log('Human choice: ' + humanChoice);
+    return(humanChoice);
   }
 }
+
+// Display the human choice
+// console.log('Human choice: ' + humanChoice);
+
+// game will be play round by round
+// use human & computer choice as arguments
+// plays a single round 
+// add the round winners score and logs the winner announcement
+
+
+// Create a function playRound
+function playRound(humanChoice, computerChoice) {
+
+  if (humanChoice === computerChoice) {
+
+    console.log("It's a tie.");
+  } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+    
+    console.log("You lose! Paper beats Rock!");
+  } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+    
+    console.log("You win! Rock beats Scissors!");
+  } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+
+    console.log("You lose! Rock beats Scissors!");
+  } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+
+    console.log("You win! Scissors beats Paper!");
+  } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+
+    console.log("You lose! Scissors beats Paper!");
+  } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+    
+    console.log("You win! Paper beats Rock!");
+  } 
+}
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+//SET the humanScore and ComputerScore to default value 0
+let humanScore = 0;
+let computerScore = 0;
+
+
+
