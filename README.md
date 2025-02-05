@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎮 Rock Paper Scissors
 
 A simple **Rock Paper Scissors** game built using JavaScript as part of [The Odin Project](https://www.theodinproject.com/) curriculum. The game runs in the browser console.
@@ -39,6 +38,7 @@ git clone https://github.com/your-username/rock-paper-scissors.git
 # Navigate to the project folder
 cd rock-paper-scissors
 ```
+
 =======
 Rock Paper Scissors 🎮
 A simple Rock Paper Scissors game built using JavaScript as part of The Odin Project curriculum. The game runs in the browser console.
@@ -77,4 +77,5 @@ Open index.html in a browser (if you add UI later) OR open the .js file in a con
 This project is open-source and available under the MIT License.
 
 Feel free to modify it based on your project style. Want me to tweak it further? 🚀
->>>>>>> e3c95cfc8ca4fd219e21fb579fd06403eea67f6b
+
+> > > > > > > e3c95cfc8ca4fd219e21fb579fd06403eea67f6b
