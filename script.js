@@ -2,47 +2,45 @@ console.log("Hello World!");
 console.log("This project is part of The Odin Project.");
 console.log("Rock, Paper, Scissors.");
 
-//SET the scores to default value 0
+//SET the scores for both human and computer
 let humanScore = 0;
 let computerScore = 0;
 
-// Create a choice for computer that RANDOMLY chooses rock, paper, or scissors
+// Generate random choice for the computer between rock, paper, or scissors.
 function getComputerChoice() {
-  // SET the computerChoice RANDOMLY
+  // Generate random number between 0 and 1
   let computerChoice = Math.random();
-  // ASSIGN rock, paper, scissors values
+  
+  // ASSIGN the random number to one of the three choices
   if (computerChoice <= 0.33 ) {
-    return "rock"; // Display Rock
+    return "rock"; 
   } else if (computerChoice <= 0.67) {
-    return "paper"; // DISPLAY Paper
+    return "paper"; 
   } else {
-    return "scissors"; // DISPLAY Scissors
+    return "scissors"; 
   }
 }
-// Display the computer choice
-// console.log('Computer choice: ' + getComputerChoice());
 
-// Create a choice for human that will return valid choices
+// Ask the user to choose between rock, paper, or scissors
 function getHumanChoice() {
-  // Ask the user to choose between rock, paper, scissors
   let humanChoice = prompt("rock, paper, scissors?", "rock").toLowerCase();
-  // Check if the user input is valid
+
+  // Validate the user's choice; if invalid, ask again recursively
   if (humanChoice !== 'rock' && humanChoice !== 'scissors' && humanChoice !== 'paper') {
     alert("Invalid Choice");
-    // ask again
-    humanChoice = prompt("rock, paper, scissors?", "scissors").toLowerCase();
-    return(humanChoice);
-  } else {
-    return(humanChoice);
+    return getHumanChoice(); // Recursive call if input is invalid
   }
+  return humanChoice;
 }
 
 // Create a single round for rock paper scissors
 function playRound(humanChoice, computerChoice) {
-  // Make the choices case-sensitive so players layers can input “rock”, “ROCK”, “RocK”, or other variations.
+  // Normalize both to lowercase to handle any case variations (e.g., "rock", "ROCK", "RocK")
   humanChoice = humanChoice.toLowerCase();
   computerChoice = computerChoice.toLowerCase();
-  console.log(`DEBUG - Human: ${humanChoice}, Computer: ${computerChoice}`);
+
+  console.log(`Choices - Human: ${humanChoice}, Computer: ${computerChoice}`);
+
   // // create a logic that computes who is the winner every round
   // if (humanChoice === computerChoice) {
   //   console.log("It's a tie.");
@@ -75,36 +73,36 @@ function playRound(humanChoice, computerChoice) {
   //   return;
   // } 
 
-
-  // Cleaner Version
   // Determine the winner each round
   if (humanChoice === computerChoice) {
     console.log("It's a tie.");
   } else if (humanChoice === 'rock' && computerChoice === 'scissors' || humanChoice === 'scissors' && computerChoice === 'paper' || humanChoice === 'paper' && computerChoice === 'rock') {
-    // display the winner, make the first string uppercase
+    // If human wins, display the result with capitalized choices
     console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`);
     humanScore += 1;
   } else {
-    // display t
+    // If computer wins display the result
     console.log(`You lose! ${computerChoice} beats ${humanChoice} !`);
     computerScore += 1;
   }
 }
 
-// function playGame
+// Play the game for 5 rounds
 function playGame() {
-  // play 5 rounds// calls playround  
+  // Repeat the game for 5 rounds
   for (let i = 0; i < 5; i++) {
+    // Display the current round number
     console.log(`Round ${i+1}`);
-    // SET the human choices into variables
+
+    // Get the human and computer choice
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-    // Start the single round for the game
+
+    // Compare the choices and decide the winner for this round
     playRound(humanSelection, computerSelection);
-    // keeps track of scores and declares a winner at the end.
   }
 
-  // Display the final score
+  // Display the final score and determine the winner
   console.log(`Final Score: You: ${humanScore}, Computer: ${computerScore}`);
   if (humanScore > computerScore) {
     console.log("Congratulations! You won the game!");
