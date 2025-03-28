@@ -88,30 +88,42 @@ function playRound(humanChoice, computerChoice) {
 }
 
 // Play the game for 5 rounds
-function playGame() {
-  // Repeat the game for 5 rounds
-  for (let i = 0; i < 5; i++) {
-    // Display the current round number
-    console.log(`Round ${i+1}`);
+// function playGame() {
+//   // Repeat the game for 5 rounds
+//   for (let i = 0; i < 5; i++) {
+//     // Display the current round number
+//     console.log(`Round ${i+1}`);
 
-    // Get the human and computer choice
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+//     // Get the human and computer choice
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
 
-    // Compare the choices and decide the winner for this round
-    playRound(humanSelection, computerSelection);
-  }
+//     // Compare the choices and decide the winner for this round
+//     playRound(humanSelection, computerSelection);
+//   }
 
-  // Display the final score and determine the winner
-  console.log(`Final Score: You: ${humanScore}, Computer: ${computerScore}`);
-  if (humanScore > computerScore) {
-    console.log("Congratulations! You won the game!");
-  } else if (humanScore < computerScore) {
-    console.log("Sorry, you lost the game.");
-  } else {
-    console.log("It's a tie game overall.");
-  }
-}
+//   // Display the final score and determine the winner
+//   console.log(`Final Score: You: ${humanScore}, Computer: ${computerScore}`);
+//   if (humanScore > computerScore) {
+//     console.log("Congratulations! You won the game!");
+//   } else if (humanScore < computerScore) {
+//     console.log("Sorry, you lost the game.");
+//   } else {
+//     console.log("It's a tie game overall.");
+//   }
+// }
 
 // Start the game
-playGame();
+// playGame();
+
+
+// PROBLEM
+// Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+
+// SELECT and REFERENCE the all buttons
+
+
+
+
+
+
