@@ -117,13 +117,43 @@ function playRound(humanChoice, computerChoice) {
 // playGame();
 
 
+
+
+
+
+
+
+
+
+
 // PROBLEM
 // Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
 
-// SELECT and REFERENCE the all buttons
+// Create three buttons, one for each selection.
+const rock = document.querySelector('#Rock');
+const paper = document.querySelector('#Paper');
+const scissors = document.querySelector('#Scissors');
 
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
 
+rock.addEventListener('click', () => {
+  const humanChoice = rock.id;
+  const computerChoice = getComputerChoice();
+  return playRound(humanChoice, computerChoice);
+})
 
+paper.addEventListener('click', () => {
+  const humanChoice = paper.id;
+  const computerChoice = getComputerChoice();
+  return playRound(humanChoice, computerChoice);
+})
 
+scissors.addEventListener('click', () => {
+  const humanChoice = scissors.id;
+  const computerChoice = getComputerChoice();
+  return playRound(humanChoice, computerChoice);
+})
 
+// Add a div for displaying results and change all of your console.logs into DOM methods.
 
+document.querySelector("#results").textContent = 'test';
