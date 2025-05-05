@@ -4,16 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div>
-      <!-- Player Selection -->
-      <button id="Rock">Rock</button>
-      <button id="Paper">Paper</button>
-      <button id="Scissors">Scissors</button>
-      <!-- Results -->
-      <div id="results"></div>
+    <div class="game-container">
+      <div class="scoreboard">
+        <div class="score">
+          <span>YOU</span>
+          <span id="player-score" class="score-value">0</span>
+        </div>
+        <div class="score">
+          <span>COM</span>
+          <span id="computer-score" class="score-value">0</span>
+        </div>
+      </div>
+
+      <div class="round-count">Round: <span id="round-counter">1</span></div>
+
+      <span id="pc" class="hidden">✊</span>
+
+      <div id="player">
+        <span id="rock">✊</span>
+        <span id="paper">🤚</span>
+        <span id="scissors">✌️</span>
+      </div>
+
+      <p class="result hidden">You Win!</p>
+      <div class="streak">Win streak: <span id="streak-counter">0</span></div>
+
+      <div class="streaks">
+        <div>Best win streak: <span id="best-streak">0</span></div>
+        <div>Win rate: <span id="win-rate">0</span>%</div>
+      </div>
+      <div class="key-info">
+        Press 'R' to reset scores | Press 1-3 for quick choice
+      </div>
     </div>
   </body>
 </html>
